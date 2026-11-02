@@ -1,128 +1,128 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
+ */
 package com.mycompany.harelrajendram_lab10;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+
 import javafx.scene.control.CheckMenuItem;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
+/**
+ * FXML Controller class
+ *
+ * @author macos
+ */
+public class MainViewController implements Initializable {
 
-public class MainViewController {
 
-    @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
-    }
-    
-    @FXML
-    private MenuItem closeItem;
-
-    @FXML
-    private MenuItem copyItem;
-
-    @FXML
-    private MenuItem findItem;
-
-    @FXML
-    private CheckMenuItem gridItem;
-
-    @FXML
-    private RadioMenuItem largeItem;
-
-    @FXML
-    private RadioMenuItem mediumItem;
-    
     @FXML
     private AnchorPane mainPane;
-
     @FXML
     private MenuItem newItem;
-
     @FXML
     private MenuItem openItem;
-
     @FXML
-    private MenuItem replaceItem;
-
+    private MenuItem closeItem;
     @FXML
     private MenuItem saveItem;
-
+    @FXML
+    private CheckMenuItem gridItem;
+    @FXML
+    private MenuItem copyItem;
     @FXML
     private Menu searchMenu;
-
+    @FXML
+    private MenuItem findItem;
+    @FXML
+    private MenuItem replaceItem;
     @FXML
     private RadioMenuItem smallItem;
-
     @FXML
-    void handleClose(ActionEvent event) {
-
-    }
-
+    private RadioMenuItem mediumItem;
     @FXML
-    void handleCopy(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleFind(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleGrid(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleNew(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleOpen(ActionEvent event) {
-
-    }
-    @FXML
-    void handleSave(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleReplace(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleSizeLarge(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleSizeMedium(ActionEvent event) {
-
-    }
-
-    @FXML
-    void handleSizeSmall(ActionEvent event) {
-
-    }
+    private RadioMenuItem largeItem;
+    /**
+     * Initializes the controller class.
+     */
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-    ToggleGroup tg = new ToggleGroup();
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+            ToggleGroup tg = new ToggleGroup();
     smallItem.setToggleGroup(tg);
     mediumItem.setToggleGroup(tg);
     largeItem.setToggleGroup(tg);
     closeItem.setDisable(true); // disabled until a file is "opened"
     
     newItem.setAccelerator(KeyCombination.keyCombination("Ctrl+N"));
-}
+    ContextMenu popup = new ContextMenu();
+MenuItem help = new MenuItem("Help");
+MenuItem inspect = new MenuItem("Inspect");
+popup.getItems().addAll(help, inspect);
+mainPane.setOnMouseClicked(e -> {
+ if (e.getButton() == MouseButton.SECONDARY) {
+ popup.show(mainPane, e.getScreenX() - 50, e.getScreenY() -
+25);
+ }
+});
+    }    
+    
     @FXML
+    private void handleNew(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleOpen(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleClose(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleSave(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleGrid(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleCopy(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleFind(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleReplace(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleSizeSmall(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleSizeMedium(ActionEvent event) {
+    }
+
+    @FXML
+    private void handleSizeLarge(ActionEvent event) {
+    }
+
+     @FXML
     private void handleNew() {
         
     System.out.println("NEW has been pressed");
@@ -194,6 +194,5 @@ private void handleSizeLarge() {
         System.out.println("large size has been pressed");
     }
 }
-
 
 }

@@ -7,35 +7,35 @@
 <?import javafx.scene.control.RadioMenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.harelrajendram_lab10.MainViewController">
    <children>
       <MenuBar layoutX="-2.0" layoutY="-1.0" prefHeight="29.0" prefWidth="600.0">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="_File">
             <items>
-              <MenuItem fx:id="newItem" mnemonicParsing="false" text="New" />
-                  <MenuItem fx:id="openItem" mnemonicParsing="false" text="Open" />
-                  <MenuItem fx:id="closeItem" mnemonicParsing="false" text="Close" />
-                  <MenuItem fx:id="saveItem" mnemonicParsing="false" text="Save As" />
+              <MenuItem fx:id="newItem" mnemonicParsing="false" onAction="#handleNew" text="New" />
+                  <MenuItem fx:id="openItem" mnemonicParsing="false" onAction="#handleOpen" text="Open" />
+                  <MenuItem fx:id="closeItem" mnemonicParsing="false" onAction="#handleClose" text="Close" />
+                  <MenuItem fx:id="saveItem" mnemonicParsing="false" onAction="#handleSave" text="Save As" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="_Edit">
                <items>
-                  <CheckMenuItem fx:id="gridItem" mnemonicParsing="false" text="Use GridLines" />
-                  <MenuItem fx:id="copyItem" mnemonicParsing="false" text="Copy" />
+                  <CheckMenuItem fx:id="gridItem" mnemonicParsing="false" onAction="#handleGrid" text="Use GridLines" />
+                  <MenuItem fx:id="copyItem" mnemonicParsing="false" onAction="#handleCopy" text="Copy" />
                   <Menu fx:id="searchMenu" mnemonicParsing="false" text="Search">
                     <items>
-                      <MenuItem fx:id="findItem" mnemonicParsing="false" text="Find" />
-                        <MenuItem fx:id="replaceItem" mnemonicParsing="false" text="Replace" />
+                      <MenuItem fx:id="findItem" mnemonicParsing="false" onAction="#handleFind" text="Find" />
+                        <MenuItem fx:id="replaceItem" mnemonicParsing="false" onAction="#handleReplace" text="Replace" />
                     </items>
                   </Menu>
                </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Settings">
+          <Menu mnemonicParsing="false" text="_Settings">
                <items>
-                  <RadioMenuItem fx:id="smallItem" mnemonicParsing="false" text="Small" />
-                  <RadioMenuItem fx:id="mediumItem" mnemonicParsing="false" text="Medium" />
-                  <RadioMenuItem fx:id="largeItem" mnemonicParsing="false" text="Large" />
+                  <RadioMenuItem fx:id="smallItem" mnemonicParsing="false" onAction="#handleSizeSmall" text="Small" />
+                  <RadioMenuItem fx:id="mediumItem" mnemonicParsing="false" onAction="#handleSizeMedium" text="Medium" />
+                  <RadioMenuItem fx:id="largeItem" mnemonicParsing="false" onAction="#handleSizeLarge" text="Large" />
                </items>
           </Menu>
         </menus>
