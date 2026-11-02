@@ -88,6 +88,10 @@ public class MainViewController {
     void handleOpen(ActionEvent event) {
 
     }
+    @FXML
+    void handleSave(ActionEvent event) {
+
+    }
 
     @FXML
     void handleReplace(ActionEvent event) {
@@ -126,6 +130,30 @@ public class MainViewController {
     openItem.setDisable(true);
     closeItem.setDisable(false);
 }   
+    
+    @FXML
+private void handleOpen() {
+ System.out.println("OPEN has been pressed");
+ newItem.setDisable(true);
+ openItem.setDisable(true);
+ closeItem.setDisable(false);
+}
+@FXML
+private void handleClose() {
+ System.out.println("CLOSE has been pressed");
+ newItem.setDisable(false);
+ openItem.setDisable(false);
+ closeItem.setDisable(true);
+}
+@FXML
+private void handleSave() {
+ System.out.println("SAVE has been pressed");
+ newItem.setDisable(false);
+ openItem.setDisable(false);
+ closeItem.setDisable(false);
+}
+    
+    
     @FXML
     private void handleGrid() {
         
@@ -134,5 +162,38 @@ public class MainViewController {
     else
         System.out.println("USE GRIDLINES unselected");
     }
+    @FXML
+private void handleCopy() {
+ System.out.println("Copy has been pressed");
+}
+@FXML
+private void handleFind() {
+ System.out.println("Find has been pressed");
+ replaceItem.setDisable(true);
+}
+@FXML
+private void handleReplace() {
+ System.out.println("Replace has been pressed");
+ findItem.setDisable(true);
+}
+@FXML
+private void handleSizeSmall() {
+    if (smallItem.isSelected()) {
+        System.out.println("small size has been pressed");
+    }
+}
+@FXML
+private void mediumItem() {
+    if (mediumItem.isSelected()) {
+        System.out.println("medium size has been pressed");
+    }
+}
+@FXML
+private void handleSizeLarge() {
+    if (largeItem.isSelected()) {
+        System.out.println("large size has been pressed");
+    }
+}
+
 
 }
